@@ -6,7 +6,7 @@
 /*   By: aisfi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 10:52:54 by aisfi             #+#    #+#             */
-/*   Updated: 2026/11/28 13:22:39 by aisfi            ###   ########.fr       */
+/*   Updated: 2026/11/27 15:17:59 by aisfi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	min_rotation(t_stack *s)
 
 	i = 0;
 	min = s->arr[s->head];
-	r = i;
+	r = s->head;
 	while (i < s->size)
 	{
 		index = (s->head + i) % s->capacity;
@@ -35,39 +35,36 @@ static int	min_rotation(t_stack *s)
 	return (r);
 }
 
-static void	move_to_min(int min, t_ctr *s)
-{
-	int	i;
-
-	i = 0;
-	if (min > s->a->size / 2)
-	{
-		while (i < s->a->size - min)
-		{
-			rra(s);
-			i++;
-		}
-	}
-	else
-	{
-		while (i < min)
-		{
-			ra(s);
-			i++;
-		}
-	}
-}
-
 void	select_sort(t_ctr *s)//valid
 {
+	int		i;
 	int		min;
+	int		s1;
+	int		s2;
 
 	while (s->a->size > 0)
 	{
+		i = 0;
 		min = min_rotation(s->a);
-		move_to_min(min, s);
+		if (min > s->a->size / 2)
+		{
+			while (i < s->a->size - min)
+			{
+				rra(s);
+				i++;
+			}
+		}
+		else
+		{
+			while (i < min)
+			{
+				ra(s);
+				i++;
+			}
+		}
 		pb(s);
 	}
 	while (s->b->size > 0)
 		pa(s);
 }
+
