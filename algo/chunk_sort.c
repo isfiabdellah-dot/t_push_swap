@@ -6,7 +6,7 @@
 /*   By: nguerrab <nguerrab@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 19:52:55 by nguerrab          #+#    #+#             */
-/*   Updated: 2026/11/26 15:09:55 by nguerrab         ###   ########.fr       */
+/*   Updated: 2026/11/28 13:37:56 by aisfi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,10 @@ void	chunk_sort(t_ctr *s)
 	k = sqre(s->a->size);
 	n = (s->a->size + k - 1) / k;
 	if (chunk_while(s, rk, n, k))
+	{
+		free(rk);
 		return ;
+	}
 	sort_b(s);
 	free(rk);
 }
