@@ -1,1 +1,0 @@
-Good call. Starting fresh with a fork is often the cleanest way to fix a messy git history. Here is the exact, step-by-step way to fork and work on a project without getting those merge conflict headaches.
