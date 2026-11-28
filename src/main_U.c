@@ -6,7 +6,7 @@
 /*   By: nguerrab <nguerrab@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 18:44:35 by nguerrab          #+#    #+#             */
-/*   Updated: 2026/11/28 13:24:30 by aisfi            ###   ########.fr       */
+/*   Updated: 2026/11/26 14:41:26 by nguerrab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ int	ft_strlen(char *str)
 
 void	error(void)
 {
-	write(2, "Error\n", 6);
+	write(2, "ERROR\n", 6);
 	exit(1);
 }
