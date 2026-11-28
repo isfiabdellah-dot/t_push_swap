@@ -6,7 +6,7 @@
 /*   By: aisfi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/27 10:13:09 by aisfi             #+#    #+#             */
-/*   Updated: 2026/11/28 15:51:12 by aisfi            ###   ########.fr       */
+/*   Updated: 2026/11/28 18:15:05 by aisfi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,16 @@ static int	get_max_bits(int max_value)
 	return (bits);
 }
 
-static void	radix_u(t_ctr *s, int bit, int *rk)
+static void	radix_u(t_ctr *s, int bits, int *rk)
 {
 	int	value;
 	int	i;
-	int	bits;
 
 	i = 0;
-	bits = get_max_bits(get_max(s->a));
-	while (i < s->a->capacity)
+	while (i < bits)
 	{
 		value = ft_index(s->a->arr[s->a->head], rk, s->a);
-		if ((value >> bit) & 1)
+		if ((value >> i) & 1)
 			ra(s);
 		else
 			pb(s);
@@ -63,20 +61,22 @@ static void	radix_u(t_ctr *s, int bit, int *rk)
 void	radix_sort(t_ctr *s)
 {
 	int	*rk;
-	int	bit;
+	int	bits;
+	int	i;
 
+	i = 0;
 	rk = ranking(s->a);
 	if (!rk)
 		error();
-	bit = 0;
-	while (bit < s->a->capacity)
+	bits = get_max_bits(get_max(s->a));
+	while (i < bits)
 	{
-		radix_u(s, bit, rk);
+		radix_u(s, bits, rk);
 		while (s->b->size > 0)
 			pa(s);
 		if (stack_is_sorted(s->a))
 			break ;
-		bit++;
+		i++;
 	}
 	free(rk);
 }

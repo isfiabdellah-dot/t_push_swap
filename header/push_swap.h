@@ -6,7 +6,7 @@
 /*   By: aisfi <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 15:46:18 by aisfi             #+#    #+#             */
-/*   Updated: 2026/11/28 12:13:06 by aisfi            ###   ########.fr       */
+/*   Updated: 2026/11/28 18:43:34 by aisfi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -29,6 +30,20 @@ typedef struct s_ctr
 {
 	t_stack	*a;
 	t_stack	*b;
+	float	disorder;
+	char	*strategy;
+	int	total_ops;
+	int	sa;
+	int	sb;
+	int	ss;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
 }	t_ctr;
 
 int		stack_is_sorted(t_stack *s);
@@ -37,7 +52,7 @@ int		stack_shift_up(t_stack *s);
 int		stack_shift_down(t_stack *s);
 int		isallnum(char *av);
 int		ft_memcmp(void *s1, void *s2, int n);
-int		ft_strlen(char *str);
+int		ft_strlen(const char *str);
 int		isnum(char *av);
 int		repetition(t_ctr *s, int n, int *i);
 int		valid_add(char *av, t_ctr *s, int *i);
@@ -46,7 +61,10 @@ int		sqre(int n);
 int		fft_max(t_stack *s);
 int		ft_index(int n, int *arr, t_stack *a);
 int		*ranking(t_stack *a);
-void	push_swap(t_ctr *s, int flag, float disorder);
+char	*ft_strdup(const char *s);
+void	bench(t_ctr *s);
+void	ft_bzero(void *s, size_t n);
+void	push_swap(t_ctr *s, int flag);
 void	chunk_sort(t_ctr *s);
 void	ifelse(int flag, int argc, char **argv, t_ctr *s);
 void	error(void);
@@ -69,7 +87,7 @@ void	rrr(t_ctr *s);
 void	select_sort(t_ctr *s);
 void    chunk_sort(t_ctr *s);
 void    radix_sort(t_ctr *s);
-float	disorder(t_stack *a);
+void	disorder(t_ctr *s);
 t_ctr	*ctr_int(int cap);
 t_stack	*stack_init(int cap);
 

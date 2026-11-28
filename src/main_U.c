@@ -6,7 +6,7 @@
 /*   By: nguerrab <nguerrab@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/20 18:44:35 by nguerrab          #+#    #+#             */
-/*   Updated: 2026/11/28 13:24:30 by aisfi            ###   ########.fr       */
+/*   Updated: 2026/11/28 18:34:37 by aisfi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	isnum(char *av)
 	return (0);
 }
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 
